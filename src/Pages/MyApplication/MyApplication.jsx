@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import UseAuth from '../../Hooks/UseAuth';
-import { h1 } from 'motion/react-client';
+
 
 const MyApplication = () => {
     const { user } = UseAuth();
-    console.log(user.email)
     const [jobs, setJobs] = useState([])
-    console.log(jobs.map(job => console.log(job)))
     useEffect(() => {
         fetch(`http://localhost:5000/job-application?email=${user.email}`)
             .then(res => res.json())
