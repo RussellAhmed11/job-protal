@@ -3,9 +3,14 @@ import loginLottiAnimation from '../../assets/Lotti/signin.json'
 import AuthContex from '../../Contex/AuthContex/AuthContex';
 import Lottie from 'lottie-react';
 import SocialLogin from '../Share/SocialLogin';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
-    const {signInUser}=useContext(AuthContex)
+    const {signInUser}=useContext(AuthContex);
+    const loaction=useLocation();
+    const navigate=useNavigate()
+    const from=loaction.state || '/'
+    console.log(from)
 const handalesSignin = (e) => {
         e.preventDefault(e);
         const form = e.target
@@ -14,6 +19,8 @@ const handalesSignin = (e) => {
         signInUser(email,password)
         .then(result=>{
             console.log(result)
+            navigate(from)
+            
         })
         .catch(error=>{
             console.log(error)
