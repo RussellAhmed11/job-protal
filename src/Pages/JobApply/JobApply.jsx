@@ -4,7 +4,7 @@ import UseAuth from '../../Hooks/UseAuth';
 import Swal from 'sweetalert2';
 
 const JobApply = () => {
-    const id = useParams();
+    const {id} = useParams();
     const { user } = UseAuth();
     const navigate=useNavigate()
 

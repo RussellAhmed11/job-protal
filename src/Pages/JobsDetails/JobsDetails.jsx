@@ -4,7 +4,6 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const JobsDetails = () => {
     const {_id,title,company,applicationDeadline}=useLoaderData();
-  console.log(_id)
     return (
         <div>
             <h2>job details for {title}</h2>
